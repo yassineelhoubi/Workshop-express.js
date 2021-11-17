@@ -6,6 +6,7 @@ const cors = require('cors');
 const studentRouters = require('./routes/student-routes')
 const authRouters = require('./routes/auth-routes')
 const auth = require("./auth/auth-middelware");
+const classRouters = require('./routes/class-routes')
 app.use(express.json());
 app.use(cors())
 
@@ -22,6 +23,7 @@ app.use(function (req, res, next) {
 
 app.use('/api/student' , studentRouters);
 app.use('/api/auth' , authRouters);
+app.use('/api/class' , classRouters)
 
 
 app.listen(config.port, ()=> console.log('serve is runing on port :'+config.port))

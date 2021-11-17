@@ -1,10 +1,10 @@
 class Student {
 
-    constructor(id , firstName , lastName , className,  age , cin){
+    constructor(id , firstName , lastName , classId,  age , cin){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.className = className;
+        this.classId = classId;
         this.age = age;
         this.cin = cin;
 
