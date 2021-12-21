@@ -17,7 +17,7 @@ const getProducts = async (req, res, next) => {
 }
 const addProduct = async (req, res, next) => {
     try {
-        const data = req.body;
+
         const products = await prisma.product.create({
             data: req.body,
         })
@@ -31,8 +31,25 @@ const addProduct = async (req, res, next) => {
     }
 }
 
+const getSingleProduct = async (req, res, next) => {
+    try {
+        const { id } = req.params
+        const products = await prisma.product.findUnique({
+            where: {
+                id: Number(id),
+            }
+        })
+        res.json(products)
+    } catch (error) {
+        res.status(400).json({
+            message: error.message,
+            error: true
+        })
+    }
+}
 
 module.exports = {
     getProducts,
-    addProduct
+    addProduct,
+    getSingleProduct
 }
