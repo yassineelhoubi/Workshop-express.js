@@ -1,0 +1,9 @@
+yarn init -y
+yarn add express
+yarn add nodemon
+yarn add dotenv
+yarn add -D prisma
+yarn add @prisma/client
+npx prisma init
+npx prisma migrate dev
+npx prisma studio
