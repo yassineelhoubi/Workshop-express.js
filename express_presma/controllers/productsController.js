@@ -47,9 +47,45 @@ const getSingleProduct = async (req, res, next) => {
         })
     }
 }
+const deletProduct = async (req, res, next) => {
+    try {
+        const { id } = req.params
+        const products = await prisma.product.delete({
+            where: {
+                id: Number(id),
+            }
+        })
+        res.json(products)
+    } catch (error) {
+        res.status(400).json({
+            message: error.message,
+            error: true
+        })
+    }
+}
+const updateProduct = async (req, res, next) => {
+    try {
+        const { id } = req.params
+        const products = await prisma.product.update({
+            where: {
+                id: Number(id),
+            },
+            data: req.body
+
+        })
+        res.json(products)
+    } catch (error) {
+        res.status(400).json({
+            message: error.message,
+            error: true
+        })
+    }
+}
 
 module.exports = {
     getProducts,
     addProduct,
-    getSingleProduct
+    getSingleProduct,
+    deletProduct,
+    updateProduct
 }
