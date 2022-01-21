@@ -52,4 +52,9 @@ userSchema.query.byName = function (name) {
     return this.where({ name: new RegExp(name, "i") })
 }
 
+/* Virtual */
+userSchema.virtual("namedEmail").get(function () {
+    return `${this.name} <${this.email}>`
+})
+
 module.exports = mongoose.model("User", userSchema)

@@ -105,3 +105,16 @@ async function F4() {
     }
 }
 // F4()
+
+/* Virtual */
+
+async function F5() {
+    try {
+        // const user = await User.findOne({ name: "sally", email: "test@test.ef" })
+        console.log(user)
+        console.log(user.namedEmail)
+    } catch (e) {
+        console.log(e.message)
+    }
+}
+// F5()
