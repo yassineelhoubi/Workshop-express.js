@@ -112,6 +112,7 @@ async function F5() {
     try {
         // const user = await User.findOne({ name: "sally", email: "test@test.ef" })
         console.log(user)
+        // await user.save()//for try middelware
         console.log(user.namedEmail)
     } catch (e) {
         console.log(e.message)
