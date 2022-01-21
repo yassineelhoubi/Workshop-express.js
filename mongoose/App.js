@@ -87,3 +87,21 @@ async function F3() {
     }
 }
 // F3()
+
+/* Schema Methods */
+
+async function F4() {
+    try {
+        // const user =  await User.findOne({name: "omar"})
+        // user.sayHi()
+        /* Static function */
+        // const user =  await User.findByName("omar")
+        /* query */
+        // const user =  await User.find().byName("omar")
+
+        console.log(user)
+    } catch (e) {
+        console.log(e.message)
+    }
+}
+// F4()

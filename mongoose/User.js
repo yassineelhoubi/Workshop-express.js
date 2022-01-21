@@ -38,4 +38,18 @@ const userSchema = new mongoose.Schema({
     }
 })
 
+/* Schema Methods */
+
+userSchema.methods.sayHi = function () {
+    console.log(`Hi. My name is ${this.name}`)
+}
+
+userSchema.statics.findByName = function (name) {
+    return this.where({ name: new RegExp(name, "i") })
+}
+
+userSchema.query.byName = function (name) {
+    return this.where({ name: new RegExp(name, "i") })
+}
+
 module.exports = mongoose.model("User", userSchema)
